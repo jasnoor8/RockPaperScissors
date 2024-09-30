@@ -1,0 +1,101 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RockPaperScissors {
+    public static void main(String[] args) {
+        System.out.println("Let's play the game of Rock, Paper & Scissors");
+        System.out.println("Enter 1 for rock");
+        System.out.println("Enter 2 for paper");
+        System.out.println("Enter 3 for scissors");
+        int scoreuser = 0;
+        int scorecomp = 0;
+        int i = 0;
+        while (i < 5) {
+            System.out.println("Play your turn");
+            Scanner sc = new Scanner(System.in);
+            Random rn = new Random();
+            int user = sc.nextInt();
+            int comp = rn.nextInt(1, 4);
+            if (user == 1) {
+                System.out.println("You chose rock");
+                if (comp == 1) {
+                    System.out.println("Computer chose rock");
+                } else if (comp == 2) {
+                    System.out.println("Computer chose paper");
+                } else if (comp == 3) {
+                    System.out.println("Computer chose scissors");
+                }
+            } else if (user == 2) {
+                System.out.println("You chose paper");
+                if (comp == 1) {
+                    System.out.println("Computer chose rock");
+                } else if (comp == 2) {
+                    System.out.println("Computer chose paper");
+                } else if (comp == 3) {
+                    System.out.println("Computer chose scissors");
+                }
+            } else if (user == 3) {
+                System.out.println("You chose scissors");
+                if (comp == 1) {
+                    System.out.println("Computer chose rock");
+                } else if (comp == 2) {
+                    System.out.println("Computer chose paper");
+                } else if (comp == 3) {
+                    System.out.println("Computer chose scissors");
+                }
+            }
+            switch (user) {
+                case 1 -> {
+                    if (comp == 1) {
+                        System.out.println("It's a tie!");
+                    }
+                    if (comp == 2){
+                        System.out.println("You lose..");
+                        scorecomp++;
+                    }
+                    if (comp==3){
+                        System.out.println("You win a point");
+                        scoreuser++;
+                    }
+                    break;}
+
+                case 2 -> {
+                        if (comp == 2) {
+                            System.out.println("It's a tie!");
+                        }
+                        if (comp == 3){
+                            System.out.println("You lose..");
+                            scorecomp++;
+                        }
+                        if (comp==1){
+                            System.out.println("You win a point");
+                            scoreuser++;
+                        }
+                        break;}
+                case 3 -> {
+                    if (comp == 3) {
+                        System.out.println("It's a tie!");
+                    }
+                    if (comp == 1){
+                        System.out.println("You lose..");
+                        scorecomp++;
+                    }
+                    if (comp==2){
+                        System.out.println("You win a point");
+                        scoreuser++;
+                    }
+                    break;}}
+
+                System.out.println("Your score - " + scoreuser);
+            System.out.println("Computer's score - " + scorecomp);
+                    i++;
+                }
+        if (scoreuser>scorecomp){
+            System.out.println("You win the game!");
+        } else if (scorecomp>scoreuser) {
+            System.out.println("You lost the game..");
+        } else if (scorecomp==scoreuser) {
+            System.out.println("Game's a tie!");
+        }
+    }
+    }
